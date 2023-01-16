@@ -46,7 +46,9 @@ class CaffeineModel {
         var newFrame:CGSize = imgFrame
         newFrame.height += 10
         newFrame.width += 10
-        imgFrame = newFrame
+        if newFrame.height < 350 {
+            imgFrame = newFrame
+        }
     }
     
     func resetImgSize() {
@@ -84,7 +86,7 @@ class CaffeineModel {
     
     
     func doReset() ->(Bool, [String]) {
-        return changeState(newState: .Rest)
+        return changeState(newState: .Intro)
     }
     
     func doWakening() -> (Bool, [String]){

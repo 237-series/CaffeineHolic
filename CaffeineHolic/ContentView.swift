@@ -73,39 +73,49 @@ struct ContentView: View {
             }
             .padding()
             Spacer()
-            Image(caffeine.getStateImg())
-                .resizable()
-                .frame(width: caffeine.imgFrame.width, height: caffeine.imgFrame.height)
-            Button("Get Stress") {
-                print("")
-//               incStress()
-                (result, dailyList) = caffeine.doStress()
-            }
-            .padding()
             
-            Button("Go to Caffeine") {
-                print("Click")
-//                incList()
-                incCoffee()
-            }
-            .padding()
-            
-            Button("Get Some Rest") {
-                getRest()
-            }.padding()
             
             Spacer()
             
-            Text("Bottom")
+            HStack {
+                Button("Get Stress") {
+                    print("")
+    //               incStress()
+                    (result, dailyList) = caffeine.doStress()
+                }
+                .padding()
+                
+                Button("Go to Caffeine") {
+                    print("Click")
+    //                incList()
+                    incCoffee()
+                }
+                .padding()
+                
+                Button("Get Some Rest") {
+                    getRest()
+                }.padding()
+                
+            }
+//            Text("Bottom")
         }
         .padding()
         
+    }
+    
+    var Images: some View {
+        VStack {
+            Image(caffeine.getStateImg())
+                .resizable()
+                .frame(width: caffeine.imgFrame.width, height: caffeine.imgFrame.height)
+        }
     }
     
     
     var body: some View {
         ZStack {
             DailyView
+            Images
             Buttons
         }
     }
