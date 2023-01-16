@@ -62,6 +62,7 @@ struct ContentView: View {
                 }
             }
             Spacer()
+            Image("Profile.Intro")
             Button("Get Stress") {
                 print("")
                 incStress()
