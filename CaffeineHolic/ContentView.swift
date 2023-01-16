@@ -14,7 +14,7 @@ struct Daily: Identifiable {
 
 struct ContentView: View {
     @State private var dailyList = ["First", "Second"]
-    var caffeine:CaffeineModel = CaffeineModel()
+    @State var caffeine:CaffeineModel = CaffeineModel()
     
     func incList() {
         dailyList.insert("New", at: 0)
@@ -26,6 +26,7 @@ struct ContentView: View {
     
     func incCoffee() {
         dailyList.insert("Get Some Coffee", at: 0)
+        caffeine.doWakening()
     }
     
     func getRest() {

@@ -21,12 +21,22 @@ class CaffeineModel {
         switch(currentState) {
         case .Intro:
             return "Profile.Intro"
-        default:
-            return "Profile.Intro"
-        
+            
+        case .rest:
+            return "Profile.Rest"
+        case .stressful:
+            return "Profile.Stressful"
+        case .wakening:
+            return "Profile.Wakening"
+//        default:
+//            return "Profile.Intro"
+//
         }
     }
     
+    func doWakening() {
+        self.currentState = CaffeineState.wakening
+    }
     
     
 }
