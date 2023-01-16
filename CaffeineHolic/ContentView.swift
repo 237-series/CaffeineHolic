@@ -13,8 +13,9 @@ struct Daily: Identifiable {
 }
 
 struct ContentView: View {
-    @State private var dailyList = ["First", "Second"]
     @State var caffeine:CaffeineModel = CaffeineModel()
+    @State private var dailyList = ["First", "Second"]
+    @State var result:Bool = true
     
     func incList() {
         dailyList.insert("New", at: 0)
@@ -33,6 +34,11 @@ struct ContentView: View {
     func getRest() {
         dailyList.insert("REST", at: 0)
         caffeine.doRest()
+        
+    }
+    
+    func resetState() {
+        (result, dailyList) = caffeine.doReset()
     }
     
     var DailyView: some View {
@@ -61,8 +67,8 @@ struct ContentView: View {
 //                Text("Top Button")
                 Button("Top Button") {
                     print("Top Button Click")
-                    caffeine.doReset()
-                    
+                    //resetState()
+                    (result, dailyList) = caffeine.doReset()
                 }
             }
             .padding()
@@ -72,7 +78,8 @@ struct ContentView: View {
                 .frame(width: caffeine.imgFrame.width, height: caffeine.imgFrame.height)
             Button("Get Stress") {
                 print("")
-                incStress()
+//               incStress()
+                (result, dailyList) = caffeine.doStress()
             }
             .padding()
             
