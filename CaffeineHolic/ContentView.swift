@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct Daily: Identifiable {
     let id = UUID()
     let title:String
@@ -15,6 +14,7 @@ struct Daily: Identifiable {
 
 struct ContentView: View {
     @State private var dailyList = ["First", "Second"]
+    var caffeine:CaffeineModel = CaffeineModel()
     
     func incList() {
         dailyList.insert("New", at: 0)
@@ -61,8 +61,9 @@ struct ContentView: View {
                     
                 }
             }
+            .padding()
             Spacer()
-            Image("Profile.Intro")
+            Image(caffeine.getStateImg())
             Button("Get Stress") {
                 print("")
                 incStress()

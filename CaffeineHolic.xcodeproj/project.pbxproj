@@ -14,6 +14,7 @@
 		231DF0012973CF4300B8F1DA /* CaffeineHolicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231DF0002973CF4300B8F1DA /* CaffeineHolicTests.swift */; };
 		231DF00B2973CF4300B8F1DA /* CaffeineHolicUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231DF00A2973CF4300B8F1DA /* CaffeineHolicUITests.swift */; };
 		231DF00D2973CF4300B8F1DA /* CaffeineHolicUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231DF00C2973CF4300B8F1DA /* CaffeineHolicUITestsLaunchTests.swift */; };
+		231DF01A29754BCE00B8F1DA /* CaffeineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231DF01929754BCE00B8F1DA /* CaffeineModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		231DF0062973CF4300B8F1DA /* CaffeineHolicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaffeineHolicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		231DF00A2973CF4300B8F1DA /* CaffeineHolicUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineHolicUITests.swift; sourceTree = "<group>"; };
 		231DF00C2973CF4300B8F1DA /* CaffeineHolicUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineHolicUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		231DF01929754BCE00B8F1DA /* CaffeineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaffeineModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				231DEFEF2973CF4200B8F1DA /* CaffeineHolicApp.swift */,
 				231DEFF12973CF4200B8F1DA /* ContentView.swift */,
+				231DF01929754BCE00B8F1DA /* CaffeineModel.swift */,
 				231DEFF32973CF4200B8F1DA /* Assets.xcassets */,
 				231DEFF52973CF4200B8F1DA /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				231DF01A29754BCE00B8F1DA /* CaffeineModel.swift in Sources */,
 				231DEFF22973CF4200B8F1DA /* ContentView.swift in Sources */,
 				231DEFF02973CF4200B8F1DA /* CaffeineHolicApp.swift in Sources */,
 			);
