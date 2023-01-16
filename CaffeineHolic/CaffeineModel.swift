@@ -16,6 +16,7 @@ class CaffeineModel {
     }
     
     var currentState:CaffeineState = CaffeineState.Intro
+    var imgFrame:CGSize = CGSize(width: 200.0, height: 200.0)
     
     func getStateImg () -> String {
         switch(currentState) {
@@ -34,9 +35,23 @@ class CaffeineModel {
         }
     }
     
+    func doReset() {
+        self.currentState = CaffeineState.Intro
+    }
+    
     func doWakening() {
         self.currentState = CaffeineState.wakening
     }
+    
+    func doStress() {
+        self.currentState = CaffeineState.stressful
+    }
+    
+    func doRest() {
+        self.currentState = CaffeineState.rest
+    }
+    
+    
     
     
 }

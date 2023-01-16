@@ -22,6 +22,7 @@ struct ContentView: View {
     
     func incStress() {
         dailyList.insert("Stress Up", at: 0)
+        caffeine.doStress()
     }
     
     func incCoffee() {
@@ -31,6 +32,7 @@ struct ContentView: View {
     
     func getRest() {
         dailyList.insert("REST", at: 0)
+        caffeine.doRest()
     }
     
     var DailyView: some View {
@@ -59,12 +61,15 @@ struct ContentView: View {
 //                Text("Top Button")
                 Button("Top Button") {
                     print("Top Button Click")
+                    caffeine.doReset()
                     
                 }
             }
             .padding()
             Spacer()
             Image(caffeine.getStateImg())
+                .resizable()
+                .frame(width: caffeine.imgFrame.width, height: caffeine.imgFrame.height)
             Button("Get Stress") {
                 print("")
                 incStress()
@@ -77,6 +82,10 @@ struct ContentView: View {
                 incCoffee()
             }
             .padding()
+            
+            Button("Get Some Rest") {
+                getRest()
+            }.padding()
             
             Spacer()
             
