@@ -84,8 +84,17 @@ class CaffeineModel {
         return (result, dailyList)
     }
     
+    func doSame() ->(Bool, [String]) {
+        if currentState == .Intro {
+            return (false, dailyList)
+        }
+        return changeState(newState: currentState)
+    }
     
     func doReset() ->(Bool, [String]) {
+        if currentState == .Intro {
+            return (false, dailyList)
+        }
         return changeState(newState: .Intro)
     }
     

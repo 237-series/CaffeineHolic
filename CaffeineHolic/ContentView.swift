@@ -18,22 +18,22 @@ struct ContentView: View {
     @State var result:Bool = true
     
     func incList() {
-        dailyList.insert("New", at: 0)
+//        dailyList.insert("New", at: 0)
     }
     
     func incStress() {
-        dailyList.insert("Stress Up", at: 0)
-        caffeine.doStress()
+//        dailyList.insert("Stress Up", at: 0)
+        (result, dailyList) = caffeine.doStress()
     }
     
     func incCoffee() {
-        dailyList.insert("Get Some Coffee", at: 0)
-        caffeine.doWakening()
+//        dailyList.insert("Get Some Coffee", at: 0)
+        (result, dailyList) = caffeine.doWakening()
     }
     
     func getRest() {
-        dailyList.insert("REST", at: 0)
-        caffeine.doRest()
+//        dailyList.insert("REST", at: 0)
+        (result, dailyList) = caffeine.doRest()
         
     }
     
@@ -105,9 +105,14 @@ struct ContentView: View {
     
     var Images: some View {
         VStack {
-            Image(caffeine.getStateImg())
-                .resizable()
-                .frame(width: caffeine.imgFrame.width, height: caffeine.imgFrame.height)
+            Button(action: {
+                (result, dailyList) = caffeine.doSame()}
+            ) {
+                Image(caffeine.getStateImg())
+                    .resizable()
+                    .frame(width: caffeine.imgFrame.width, height: caffeine.imgFrame.height)
+            }
+            
         }
     }
     
