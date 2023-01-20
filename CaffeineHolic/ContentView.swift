@@ -14,8 +14,10 @@ struct Daily: Identifiable {
 
 struct ContentView: View {
     @State var caffeine:CaffeineModel = CaffeineModel()
-    @State private var dailyList = ["First", "Second"]
+    @State private var dailyList:[dailyItem] = []
     @State var result:Bool = true
+    
+    @State var bgColor:Color = .red
     
     func incList() {
 //        dailyList.insert("New", at: 0)
@@ -23,30 +25,36 @@ struct ContentView: View {
     
     func incStress() {
 //        dailyList.insert("Stress Up", at: 0)
+        
         (result, dailyList) = caffeine.doStress()
+        bgColor = .red
     }
     
     func incCoffee() {
 //        dailyList.insert("Get Some Coffee", at: 0)
         (result, dailyList) = caffeine.doWakening()
+        bgColor = .brown
     }
     
     func getRest() {
 //        dailyList.insert("REST", at: 0)
         (result, dailyList) = caffeine.doRest()
-        
+        bgColor = .green
     }
     
     func resetState() {
         (result, dailyList) = caffeine.doReset()
+        bgColor = .white
     }
     
     var DailyView: some View {
         // Daily History area
         HStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 20)  {
-                List(dailyList, id: \.self) {item in
-                    Text(item)
+                List(
+                    Array(
+                        dailyList.enumerated()), id: \.offset) {idx, item in
+                    Text(item.state.rawValue + " " + item.count.description)
                 }
                 Spacer()
                 Text("") // End of Daily Item List
@@ -65,6 +73,11 @@ struct ContentView: View {
                 Text("")
                 Spacer()
 //                Text("Top Button")
+                Button {
+                    print("hello")
+                } label: {
+                    Text("New")
+                }
                 Button("Top Button") {
                     print("Top Button Click")
                     //resetState()
@@ -80,8 +93,9 @@ struct ContentView: View {
             HStack {
                 Button("Get Stress") {
                     print("")
-    //               incStress()
-                    (result, dailyList) = caffeine.doStress()
+                   incStress()
+//                    (result, dailyList) = caffeine.doStress()
+                    
                 }
                 .padding()
                 
@@ -116,9 +130,19 @@ struct ContentView: View {
         }
     }
     
+    var BackgroundView: some View {
+        VStack {
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(bgColor)
+        .opacity(0.3)
+        .padding()
+    }
     
     var body: some View {
         ZStack {
+            BackgroundView
             DailyView
             Images
             Buttons
